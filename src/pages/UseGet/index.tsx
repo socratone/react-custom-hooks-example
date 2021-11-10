@@ -2,7 +2,7 @@ import useGet from '../../hooks/useGet';
 
 const BASE_URL = 'https://koreanjson.com';
 
-const Get = () => {
+const UseGet = () => {
   const { isLoading, data, error } = useGet({ url: BASE_URL + '/users' });
 
   if (isLoading) return <div>Loading...</div>;
@@ -12,10 +12,10 @@ const Get = () => {
   return (
     <div>
       {data?.map((user) => (
-        <li>{user.name}</li>
+        <li key={user.id}>{user.name}</li>
       ))}
     </div>
   );
 };
 
-export default Get;
+export default UseGet;
