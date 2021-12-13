@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react';
 
 type Validate = (value: string) => string;
 
-const useInput = (initialValue: string, validate: Validate) => {
+const useInput = (initialValue: string, validates: Validate[]) => {
   const [value, setValue] = useState(initialValue);
   const [error, setError] = useState('');
   const [touched, setTouched] = useState(false);
 
   useEffect(() => {
-    const error = validate(value);
+    let error = '';
+    validates.forEach((validate) => {
+      if (!error) error = validate(value);
+    });
     setError(error);
-  }, [validate, value]);
+  }, [validates, value]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -22,7 +25,10 @@ const useInput = (initialValue: string, validate: Validate) => {
 
   const reset = () => {
     setValue(initialValue);
-    const error = validate(value);
+    let error = '';
+    validates.forEach((validate) => {
+      if (!error) error = validate(value);
+    });
     setError(error);
     setTouched(false);
   };

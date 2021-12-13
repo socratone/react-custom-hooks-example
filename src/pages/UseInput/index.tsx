@@ -1,16 +1,15 @@
 import useInput from '../../hooks/useInput';
 import styled from 'styled-components';
 
-const validate = (value: string) => {
-  if (value === '') return '값을 입력해야 합니다.';
-  if (value.length > 3) return '이름은 3글자 이내여야 합니다.';
-  return '';
-};
+const validates = [
+  (value: string) => (value === '' ? '값을 입력해야 합니다.' : ''),
+  (value: string) => (value.length > 3 ? '이름은 3글자 이내여야 합니다.' : ''),
+];
 
 const UseInput = () => {
   const { value, error, touched, handleChange, handleBlur } = useInput(
     '',
-    validate
+    validates
   );
 
   return (
