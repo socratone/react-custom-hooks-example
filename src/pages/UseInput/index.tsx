@@ -15,6 +15,7 @@ const UseInput = () => {
     <Container>
       <TextInput value={value} onChange={handleChange} onBlur={handleBlur} />
       {touched && error && <ErrorText>{error}</ErrorText>}
+      <Button disabled={!!error}>SUBMIT</Button>
     </Container>
   );
 };
@@ -31,6 +32,23 @@ const TextInput = styled.input`
 
 const ErrorText = styled.div`
   color: red;
+  margin-bottom: 10px;
+`;
+
+const Button = styled.button`
+  display: block;
+  color: white;
+  background: dodgerblue;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 700;
+
+  &:disabled {
+    background: grey;
+    cursor: not-allowed;
+  }
 `;
 
 export default UseInput;
