@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 type Validate = (value: string) => string;
 
-const useInput = (validate: Validate) => {
-  const [value, setValue] = useState('');
+const useInput = (initialValue: string, validate: Validate) => {
+  const [value, setValue] = useState(initialValue);
   const [error, setError] = useState('');
   const [touched, setTouched] = useState(false);
 
@@ -20,12 +20,20 @@ const useInput = (validate: Validate) => {
     setTouched(true);
   };
 
+  const reset = () => {
+    setValue(initialValue);
+    const error = validate(value);
+    setError(error);
+    setTouched(false);
+  };
+
   return {
     value,
     error,
     touched,
     handleChange,
     handleBlur,
+    reset,
   };
 };
 

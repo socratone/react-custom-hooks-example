@@ -8,8 +8,10 @@ const validate = (value: string) => {
 };
 
 const UseInput = () => {
-  const { value, error, touched, handleChange, handleBlur } =
-    useInput(validate);
+  const { value, error, touched, handleChange, handleBlur } = useInput(
+    '',
+    validate
+  );
 
   return (
     <Container>

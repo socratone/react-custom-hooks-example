@@ -8,12 +8,12 @@ function App() {
   return (
     <div>
       <MainNav>
-        <MainNavItem to="/use_get">UseGet</MainNavItem>
         <MainNavItem to="/use_input">UseInput</MainNavItem>
+        <MainNavItem to="/use_get">UseGet</MainNavItem>
       </MainNav>
       <Routes>
-        <Route path="/use_get" element={<UseGet />} />
         <Route path="/use_input" element={<UseInput />} />
+        <Route path="/use_get" element={<UseGet />} />
         <Route path="*" element={<UseInput />} />
       </Routes>
     </div>
