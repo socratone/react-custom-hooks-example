@@ -43,11 +43,12 @@ const useInputAdvanced = (initialValue: Value, validates: Validate[]) => {
 
   return {
     value,
-    error,
-    touched,
+    error, // error text
+    touched, // focus out
     handleChange,
     handleBlur,
-    reset,
+    reset, // 초기화
+    // 생략해서 input props에 넣는 용도
     handlers: {
       value,
       onChange: handleChange,
