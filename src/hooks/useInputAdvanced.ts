@@ -49,7 +49,7 @@ const useInputAdvanced = (initialValue: Value, validates: Validate[]) => {
     handleBlur,
     reset, // 초기화
     // 생략해서 input props에 넣는 용도
-    handlers: {
+    attributes: {
       value,
       onChange: handleChange,
       onBlur: handleBlur,

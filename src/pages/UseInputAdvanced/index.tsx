@@ -9,12 +9,12 @@ const UseInputAdvanced = () => {
   const {
     error: nameError,
     touched: nameTouched,
-    handlers: nameHandlers,
+    attributes: nameHandlers,
   } = useInputAdvanced('', validatesName);
   const {
     error: ageError,
     touched: ageTouched,
-    handlers: ageHandlers,
+    attributes: ageHandlers,
   } = useInputAdvanced('', validatesAge);
 
   return (
